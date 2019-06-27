@@ -1,6 +1,6 @@
 # include <stdio.h>
 # include <math.h>
-#define PI 3.1416
+# define PI 3.1416
 
 int main() {
 	float r,a,b, ans;
