@@ -1,23 +1,21 @@
 # include <stdio.h>
-# include <string.h>
-# define N 10000
-bool prime[N+1];
-void sieve() {
-	for(int i = 4; i <= N; i += 2)
-		prime[i]= false;
-	for(int i = 3; i*i <= N; i += 2)
-		if(prime[i]) 
-			for(int j = i*i ; j <= N; j += i)
-				prime[j] = false;
-}
+# define ll long long
 int main() {
-	freopen("in.txt", "r", stdin);
-	memset(prime, true, sizeof(prime));
-	int left, right;
-	scanf("%d %d", &left, &right);
-	sieve();
-	for(int i = left; i<= right; i++)
-		if(prime[i])
-			printf("%d ", i);
+	ll n, sum, count = 0, i = 1;
+	scanf("%lld", &n);
+	while(i) {
+		sum = 0;
+		for(ll j = 1; j < i; j++) {
+			if(i % j == 0) {
+				sum += j;
+			}
+		}
+		if(sum == i) {
+			printf("%lld ", sum);
+			count++;
+			if(count == n) return 0;
+		}
+		i++;
+	}
 	return 0;
 }
